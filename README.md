@@ -1,4 +1,4 @@
-# Step for setip the Content_Management_System project.
+# Step for setup the Content_Management_System project.
 
 step 1. Install djnago restframework.
          pip install djangorestframework
