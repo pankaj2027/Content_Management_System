@@ -1,5 +1,5 @@
 from django.db import models
-# from django.core.validators import FileExtensionValidator
+from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import Group,AbstractUser
 from django.utils.translation import ugettext_lazy as _
 
@@ -24,6 +24,16 @@ class UserProfile(models.Model):
     state = models.CharField(max_length=50, null=True)
     country = models.CharField(max_length=50, null=True)
     pincode = models.IntegerField(null=False)
+
+class Content(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=30,null=False)
+    body  = models.CharField(max_length=300, null=False)
+    summary = models.CharField(max_length=60, null=False)
+    document = models.FileField(upload_to='Document',validators=[FileExtensionValidator(allowed_extensions=['pdf'])])   # pdf file will save in ./Document folder 
+    categories = models.CharField(max_length=100, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_by = models.DateTimeField(auto_now=True)
 
 
 #This signal create Auth Token for users 

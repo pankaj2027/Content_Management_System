@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from cms.models import User, UserProfile
+from cms.models import User, UserProfile, Content
 import re
 
 
@@ -53,3 +53,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         UserProfile.objects.create(user=user, **profile_data)
         return user
     
+
+class ContentSerializers(serializers.ModelSerializer):
+    user = serializers.CharField(source="user.id",  read_only=True)
+
+    class Meta:
+        model = Content
+        fields = ['id','user','title','body','summary','document','categories']
