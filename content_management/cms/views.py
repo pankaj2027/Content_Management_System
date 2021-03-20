@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from .models import User, Content
 from .serializer import UserSerializer, ContentSerializers
+from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -29,7 +30,10 @@ class ContentDetail(viewsets.ModelViewSet):
     # Token based Authentication is implimented
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
-
+    
+    #  search content by matching terms in title, body, summary and categories. 
+    filter_backends = [SearchFilter]
+    search_fields = ['title','body','summary','categories']
 
     # Sets the user profile to the logged in User.
     def perform_create(self, serializer):
