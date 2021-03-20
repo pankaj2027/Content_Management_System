@@ -19,6 +19,7 @@ step 5. Run the server.
         
 step 6. Register the author by using author_registation API via POSTMAN or django browser.
        request POST : http://127.0.0.1:5000/author_registration/
+       
        BODY :   {
                   "email": "pankaj2027@gmail.com",
                   "first_name": "pankaj",
@@ -39,6 +40,7 @@ step 6. Register the author by using author_registation API via POSTMAN or djang
     
 step 7. Get the token by using login API:-
         request POST:- http://127.0.0.1:5000/login/
+        
         Body :- {
                   "username":"pankaj2027@gmail.com",
                   "password":"Pankaj2027"
