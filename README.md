@@ -1,20 +1,25 @@
 # Step for setup the Content_Management_System project.
 
 Step 1. Install python(V3.9), django(V3.1.6) and djnago restframework(V3.12.2).
-         pip install djangorestframework
+        
+        pip install djangorestframework
 
 Step 2. Update your SECRET_KEY in config.py file.
-        By default it has sqlite3 but you want to use Mysql or anyother database, then remove sqlite3 config settings from setting.py file and update the       required server configuration in Config.py file as eg given for mysql in comments
+       
+       By default it has sqlite3 but you want to use Mysql or anyother database, then remove sqlite3 config settings from setting.py file and update the                  required server configuration in Config.py file as eg given for mysql in comments
         
 Step 3. Now, we are done with the pre-requisites. Run the migration command to create the tables schema by the commands as given below.
+        
         1. python3 manage.py makemigrations
         2. python3 manage.py migrate
         3. python3 group.py
 
 Step 4. Create super User:
-        1. python3 manage.py createsuperuser(keep Group_id=1, group_id 1 is for admin , and Group_id 2 is for author)
+       
+       1. python3 manage.py createsuperuser(keep Group_id=1, group_id 1 is for admin , and Group_id 2 is for author)
         
 Step 5. Run the server.
+        
         python3 manage.py runserver
         
 Step 6. Register the author by using author_registation API via POSTMAN or django server.
