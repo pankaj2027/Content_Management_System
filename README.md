@@ -84,6 +84,9 @@ step 8. Using the user token, author and admin can access their account by using
          For example:
                   http://127.0.0.1:5000/content_data/?search=software
         
-   
+  Step 10. Test Casses are added 
+              for excute the test case file run below command
+              
+              python3 manage.py test
    
    Thankyou
