@@ -30,7 +30,7 @@ class Content(models.Model):
     title = models.CharField(max_length=30,null=False)
     body  = models.CharField(max_length=300, null=False)
     summary = models.CharField(max_length=60, null=False)
-    document = models.FileField(upload_to='Document',validators=[FileExtensionValidator(allowed_extensions=['pdf'])])   # pdf file will save in ./Document folder 
+    document = models.FileField(upload_to='Document',validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True)   # pdf file will save in ./Document folder 
     categories = models.CharField(max_length=100, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     update_by = models.DateTimeField(auto_now=True)
